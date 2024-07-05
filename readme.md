@@ -4,8 +4,11 @@
 Just little project for training
 
 ## Usage
-Open in VS22 and run
+```
+git clone https://github.com/MaximIce1/SmokersProblem.git
+cd SmokersProblem
+dotnet build
+```
 
 ## Requirements
-* .NET 11 / C#11
-* VS2022
+* .NET 7 / C#11
