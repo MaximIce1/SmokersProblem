@@ -99,32 +99,6 @@ namespace smoke
                 }
                 Thread.Sleep(500);
             }
-            sem.Release();
         }
     }
-    //class Agent
-    //{
-    //    public int[] desk = [0, 0, 0];
-    //    public Semaphore sem = new Semaphore(1, 4);
-    //    public Agent()
-    //    {
-    //        Thread thread = new Thread(Drop);
-    //        thread.Name = "Agent";
-    //        thread.Start();
-    //    }
-    //    private void Drop ()
-    //    {
-    //        Random random = new Random();
-    //        sem.WaitOne();
-    //        switch (random.Next(3))
-    //        {
-    //            case 0: desk = [1, 1, 0]; break;
-    //            case 1: desk = [1, 0, 1]; break;
-    //            case 2: desk = [0, 1, 1]; break;
-    //        }
-    //        Console.WriteLine($"Agent dropped resources on the desk, {desk}");
-    //        Thread.Sleep(500);
-    //        sem.Release();
-    //    }
-    //}
 }
