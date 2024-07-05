@@ -1,1 +1,1 @@
-![example workflow](https://github.com/github/docs/actions/workflows/dotnet.yml/badge.svg)
+[![.NET](https://github.com/MaximIce1/SmokersProblem/actions/workflows/dotnet.yml/badge.svg)](https://github.com/MaximIce1/SmokersProblem/actions/workflows/dotnet.yml)[![.NET](https://github.com/MaximIce1/SmokersProblem/actions/workflows/dotnet.yml/badge.svg)](https://github.com/MaximIce1/SmokersProblem/actions/workflows/dotnet.yml)
