@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace smoke
 {
@@ -90,10 +91,9 @@ namespace smoke
             writer = new StreamWriter(ostrm);
             Console.SetOut(writer);
             Console.WriteLine(arg);
-            Console.SetOut (oldOut);
+            Console.SetOut(oldOut);
             writer.Close();
             ostrm.Close();
-
         }
     }
     class Agent
@@ -102,7 +102,7 @@ namespace smoke
         public Semaphore sem = new Semaphore(2, 4);
         public bool isSomeoneSmoking = false;
         public int[] desk = { 0, 0, 0 };
-        public Agent()
+        public Agent ()
         {
             Thread thread = new Thread(Drop);
             thread.Name = "Agent";
