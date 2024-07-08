@@ -10,13 +10,14 @@ namespace smoke
         static void Main(string[] args)
         {
             int[] initValue1 = { 1, 0, 0 };
+            File.Create("outfile.txt").Close();
             int[] initValue2 = { 0, 1, 0 };
             int[] initValue3 = { 0, 0, 1 };
-            Smoker agent = new Smoker(null, 4, true);
+            int[] initEmpty = { 0 };
             Smoker smoker1 = new Smoker(initValue2, 1);
             Smoker smoker2 = new Smoker(initValue3, 2);
             Smoker smoker3 = new Smoker(initValue1, 3);
-
+            
 
         }
     }
@@ -25,79 +26,110 @@ namespace smoke
         const int SMOKING_TIME = 1000;
         int[] inventory = { 0, 0, 0 };
         int[] initRes = { 0, 0, 0 };
-        static int[] desk = { 0, 0, 0 };
-        static bool isSmoking = false;
-        Semaphore sem = new Semaphore(2, 4);
-        //Agent agent = new Agent();
+
+        static PrintConsole print = new PrintConsole();
+        static Agent agent = new Agent();
         public Smoker(int[] initRes, int i, bool isAgent = false)
         {
             this.initRes = initRes;
             inventory = initRes;
-
-            if (isAgent == true)
-            {
-                Thread r = new Thread(Drop);
-                r.Name = "Agent";
-                r.Start();
-            }
-            else
-            {
-                Thread thread = new Thread(Grab);
-                thread.Name = $"Smoker {i}";
-                thread.Start();
-            }
+            Thread thread = new Thread(Grab);
+            thread.Name = $"Smoker {i}";
+            thread.Start();
         }
         private void Grab()
         {
             for (; ; )
             {
-                sem.WaitOne();
-                if (desk[0] != inventory[0] && desk[1] != inventory[1] && desk[2] != inventory[2])
-                { 
+                agent.sem.WaitOne();
+                if (agent.desk[0] != inventory[0] && agent.desk[1] != inventory[1] && agent.desk[2] != inventory[2])
+                {
                     Thread.Sleep(5);
-                    Console.WriteLine($"{Thread.CurrentThread.Name} grabbed resources");
-                    inventory = Array.ConvertAll(inventory, i  => i^0);
-                    desk = Array.ConvertAll(desk, i => i*0);
-                    sem.Release();
+                    inventory = Array.ConvertAll(inventory, i => i ^ 0);
+                    agent.desk = Array.ConvertAll(agent.desk, i => i * 0);
+                    agent.sem.Release();
                     Craft();
 
                 }
                 else
                 {
-                    sem.Release();
+                    agent.sem.Release();
                 }
             }
         }
         private void Craft()
         {
 
-            isSmoking = true;
+            agent.isSomeoneSmoking = true;
             inventory = initRes;
-            Console.WriteLine($"{Thread.CurrentThread.Name} is Smoking");
+            Thread.Sleep(5);
+            print.WriteInfo($"{Thread.CurrentThread.Name} is smoking");
             Thread.Sleep(SMOKING_TIME);
-            isSmoking = false;
+            agent.isSomeoneSmoking = false;
             Grab();
         }
+    }
+    class PrintConsole
+    {
+        Logging logging = new Logging();
+        public void WriteInfo(string arg)
+        {
+            Console.WriteLine(arg);
+            logging.Log (arg);
+            Thread.Sleep(100);
+        }
+    }
+    class Logging
+    {
+        public void Log(string arg)
+        {
+            FileStream ostrm;
+            StreamWriter writer;
+            TextWriter oldOut = Console.Out;
+            ostrm = new FileStream("outfile.txt", FileMode.Append, FileAccess.Write);
+            writer = new StreamWriter(ostrm);
+            Console.SetOut(writer);
+            Console.WriteLine(arg);
+            Console.SetOut (oldOut);
+            writer.Close();
+            ostrm.Close();
+
+        }
+    }
+    class Agent
+    {
+        PrintConsole print = new PrintConsole();
+        public Semaphore sem = new Semaphore(2, 4);
+        public bool isSomeoneSmoking = false;
+        public int[] desk = { 0, 0, 0 };
+        public Agent()
+        {
+            Thread thread = new Thread(Drop);
+            thread.Name = "Agent";
+            thread.Start();
+        }
+
         private void Drop()
         {
             sem.WaitOne();
             for (; ; )
             {
-                if (isSmoking == false)
+                if (isSomeoneSmoking == false)
                 {
                     Random rnd = new Random();
-                    
+
                     switch (rnd.Next(3))
                     {
                         case 0: desk[0] = 1; desk[1] = 1; desk[2] = 0; break;
                         case 1: desk[0] = 1; desk[1] = 0; desk[2] = 1; break;
                         case 2: desk[0] = 0; desk[1] = 1; desk[2] = 1; break;
                     }
-                    Thread.Sleep(0); 
-                    Console.WriteLine($"--------------- \n Agent dropped resources on the desk, {desk[0]} {desk[1]} {desk[2]}");
+                    Thread.Sleep(0);
+                    print.WriteInfo($"Agent dropped resources, {desk[0]}, {desk[1]}, {desk[2]}");
                 }
                 Thread.Sleep(500);
             }
         }
     }
+
 }
