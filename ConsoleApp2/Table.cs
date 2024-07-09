@@ -9,11 +9,7 @@ namespace ConsoleApp2
     internal class Table
     { 
         public int[] onTable = { 0, 0, 0 };
-        public Semaphore sem;
-        bool isSomeoneSmoking = false;
-        public Table() 
-        {
-            sem = new Semaphore(2, 4);
-        }
+        public Semaphore sem = new Semaphore(2, 4);
+        public bool isSomeoneSmoking = false;
     }
 }

@@ -8,16 +8,17 @@ namespace ConsoleApp2
     class Program
     {
         static Table Table = new Table();
+        static Logger Logger = new Logger();
         static void Main(string[] args)
         {
             int[] initInv1 = { 1, 0, 0 };
             int[] initInv2 = { 0, 1, 0 };
             int[] initInv3 = { 0, 0, 1 };
-            Smoker smoker1 = new Smoker(Table, 1, initInv1);
-            Smoker smoker2 = new Smoker(Table, 2, initInv2);
-            Smoker smoker3 = new Smoker(Table, 3, initInv3);
-            Agent agent = new Agent(Table);
             File.Create("outfile.txt").Close();
+            Agent agent = new Agent(Table, Logger);
+            Smoker smoker1 = new Smoker(Table, Logger, 1, initInv1);
+            Smoker smoker2 = new Smoker(Table, Logger, 2, initInv2);
+            Smoker smoker3 = new Smoker(Table, Logger, 3, initInv3);
 
         }
     }
