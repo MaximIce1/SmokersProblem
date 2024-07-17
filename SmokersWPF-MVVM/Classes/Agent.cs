@@ -34,9 +34,6 @@ namespace SmokersWPF_MVVM.Classes
                         case 2: table.Res1 = 0; table.Res2 = 1; table.Res3 = 1; break;
 
                     }
-                    table.RaisePropertyChanged(nameof(table.Res1));
-                    table.RaisePropertyChanged(nameof(table.Res2));
-                    table.RaisePropertyChanged(nameof(table.Res3));
                     Logger.log($"Agent provided resources: {table.Res1} {table.Res2} {table.Res3}");
                 }
             }
