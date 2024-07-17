@@ -5,7 +5,11 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{9D386D37-C3D3-4D2E-BCC2-EAB5D8E42C64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "src\UnitTests\UnitTests.csproj", "{5BC91291-859E-401F-8320-DA2DE032A92B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "src\UnitTests\UnitTests.csproj", "{5BC91291-859E-401F-8320-DA2DE032A92B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "smokersWPF", "smokersWPF\smokersWPF.csproj", "{492C678A-782F-4383-BE46-4E060890EC01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokersWPF-MVVM", "SmokersWPF-MVVM\SmokersWPF-MVVM.csproj", "{8463DBD9-6380-440E-8D7E-FDE520B43904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{5BC91291-859E-401F-8320-DA2DE032A92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BC91291-859E-401F-8320-DA2DE032A92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BC91291-859E-401F-8320-DA2DE032A92B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492C678A-782F-4383-BE46-4E060890EC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492C678A-782F-4383-BE46-4E060890EC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492C678A-782F-4383-BE46-4E060890EC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492C678A-782F-4383-BE46-4E060890EC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8463DBD9-6380-440E-8D7E-FDE520B43904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8463DBD9-6380-440E-8D7E-FDE520B43904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8463DBD9-6380-440E-8D7E-FDE520B43904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8463DBD9-6380-440E-8D7E-FDE520B43904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
