@@ -13,9 +13,6 @@ using System.IO;
 
 namespace SmokersWPF_MVVM
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         static Logger Logger = new();

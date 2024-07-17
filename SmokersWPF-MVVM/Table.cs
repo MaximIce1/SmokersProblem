@@ -23,13 +23,12 @@ namespace SmokersWPF_MVVM
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         private byte res1;
-        public byte Res1 { get { return res1; } set { res1 = value;} }
+        public byte Res1 { get { return res1; } set { res1 = value; OnPropertyChanged(nameof(Res1)); } }
         private byte res2;
-        public byte Res2 { get { return res2; } set { res2 = value;} }
+        public byte Res2 { get { return res2; } set { res2 = value; OnPropertyChanged(nameof(Res2)); } }
         private byte res3;
-        public byte Res3 { get { return res3; } set { res3 = value;} }
+        public byte Res3 { get { return res3; } set { res3 = value; OnPropertyChanged(nameof(Res3)); } }
         private bool smokingState;
         public bool SmokingState { get { return smokingState; } set { smokingState = value; OnPropertyChanged(nameof(SmokingState)); } }
-        public void RaisePropertyChanged(string nameProp) => OnPropertyChanged(nameProp);
     }
 }

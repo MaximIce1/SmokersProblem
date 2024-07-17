@@ -10,6 +10,10 @@
         <local:Table x:Name="Table"/>
     </Window.DataContext>
     <Grid>
-        <TextBlock Text="{Binding Res1}" Width="120" Height="120" Margin="580,213,580,371"/>
+        <StackPanel>
+            <TextBox Width="30" Text="{Binding Res1, Mode=OneWay}" IsReadOnly="True"/>
+            <TextBox Width="30" Text="{Binding Res2, Mode=OneWay}" IsReadOnly="True"/>
+            <TextBox Width="30" Text="{Binding Res3, Mode=OneWay}" IsReadOnly="True"/>
+        </StackPanel>
     </Grid>
 </Window>
