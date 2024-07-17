@@ -11,9 +11,9 @@
     </Window.DataContext>
     <Grid>
         <StackPanel>
-            <TextBox Width="30" Text="{Binding Res1, Mode=OneWay}" IsReadOnly="True"/>
-            <TextBox Width="30" Text="{Binding Res2, Mode=OneWay}" IsReadOnly="True"/>
-            <TextBox Width="30" Text="{Binding Res3, Mode=OneWay}" IsReadOnly="True"/>
+            <TextBox Width="30" Text="{Binding Res1, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <TextBox Width="30" Text="{Binding Res2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <TextBox Width="30" Text="{Binding Res3, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
         </StackPanel>
     </Grid>
 </Window>
