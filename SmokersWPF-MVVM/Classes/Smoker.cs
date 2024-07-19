@@ -10,31 +10,32 @@ namespace SmokersWPF_MVVM.Classes
     {
         int[] initInv = { 0, 0, 0 };
         public bool isSmoking = false;
-        static Semaphore sem = new Semaphore(1, 4);
+        MainVM vm;
         const int SMOKING_TIME = 1000;
-        Table table;
-        public Smoker(Table table, int i, int[] invInit)
+        public Smoker(MainVM vm, int i, int[] invInit)
         {
             Thread thread = new Thread(Grab);
             thread.Name = $"{i} Smoker";
             thread.Start();
-            this.table = table;
             initInv = invInit;
+            this.vm = vm;
+            
         }
         public void Grab()
         {
             for (; ; )
             {
-                table.sem.WaitOne();
-                if (initInv[0] != table.Res1 && initInv[1] != table.Res2 && initInv[2] != table.Res3)
+                Table_.sem.WaitOne();
+                if (initInv[0] != Table_.res1 && initInv[1] != Table_.res2 && initInv[2] != Table_.res3)
                 {
-                    table.SmokingState = true;
+                    Table_.smokingState = true;
                     Thread.Sleep(50);
-                    Logger.log($"{Thread.CurrentThread.Name} is smoking");
+                    Logger.Log($"{Thread.CurrentThread.Name} is smoking");
+                    vm.WhosSmoking = $"{Thread.CurrentThread.Name} is smoking";
                     Thread.Sleep(SMOKING_TIME);
                 }
-                table.SmokingState = false;
-                table.sem.Release();
+                Table_.smokingState = false;
+                Table_.sem.Release();
             }
         }
     }

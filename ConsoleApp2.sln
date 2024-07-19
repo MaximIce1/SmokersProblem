@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "src\UnitTests\UnitTests.csproj", "{5BC91291-859E-401F-8320-DA2DE032A92B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokersWPF-MVVM", "SmokersWPF-MVVM\SmokersWPF-MVVM.csproj", "{8463DBD9-6380-440E-8D7E-FDE520B43904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokersWPF1", "SmokersWPF-MVVM\SmokersWPF1.csproj", "{8463DBD9-6380-440E-8D7E-FDE520B43904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

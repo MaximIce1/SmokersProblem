@@ -31,7 +31,7 @@ namespace SmokersWPF_MVVM
             }
 
         }
-        public static void log(string str)
+        public static void Log(string str)
         {
             WriteConsole(str);
             WriteFile("outfile.txt", str);

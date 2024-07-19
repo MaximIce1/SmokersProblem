@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmokersWPF_MVVM" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
-    <Window.DataContext>
-        <local:Table x:Name="Table"/>
-    </Window.DataContext>
-    <Grid>
-        <StackPanel>
-            <TextBox Width="30" Text="{Binding Res1, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <TextBox Width="30" Text="{Binding Res2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <TextBox Width="30" Text="{Binding Res3, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+        Title="MainWindow" Height="200" Width="200">
+    <DockPanel>
+        <StackPanel Height="45" Width="30" Margin="10,10">
+            <TextBox Width="30" Height="15" Text="{Binding Res1, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <TextBox Width="30" Height="15" Text="{Binding Res2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <TextBox Width="30" Height="15" Text="{Binding Res3, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
         </StackPanel>
-    </Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding WhosSmoking, UpdateSourceTrigger=PropertyChanged}"/>
+            
+        </StackPanel>
+    </DockPanel>
 </Window>
