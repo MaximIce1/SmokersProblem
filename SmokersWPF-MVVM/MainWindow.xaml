@@ -1,0 +1,28 @@
+﻿<Window x:Class="SmokersWPF_MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmokersWPF_MVVM" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="220">
+    <Grid>
+        <StackPanel>
+            <WrapPanel>
+                <StackPanel Margin="15 10">
+                    <TextBlock Text="Paper:" HorizontalAlignment="Center"/>
+                    <TextBox Text="{Binding Res1, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="10">
+                    <TextBlock Text="Tobacco:"/>
+                    <TextBox Text="{Binding Res2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="10">
+                    <TextBlock Text="Match:" HorizontalAlignment="Center"/>
+                    <TextBox Text="{Binding Res3, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
+                </StackPanel>
+            </WrapPanel>
+            <TextBlock Text="{Binding WhosSmoking, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>
