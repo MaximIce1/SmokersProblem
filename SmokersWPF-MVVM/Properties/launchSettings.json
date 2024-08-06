@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SmokersWPF1": {
+      "commandName": "Project",
+      "commandLineArgs": "5"
+    }
+  }
+}

@@ -8,14 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Documents;
+using System.Windows.Xps.Serialization;
 using SmokersWPF_MVVM.Classes;
 
 namespace SmokersWPF_MVVM
 {
-    class MainVM : INotifyPropertyChanged
+        public class MainVM : INotifyPropertyChanged
     {
         private string whosSmoking = "";
         private string agentLog = "";
+        private int smokersCount = 3;
+        private int smokingCount = 0;
         public event PropertyChangedEventHandler? PropertyChanged;
         public virtual void OnPropertyChanged(string propName)
         {
@@ -45,6 +48,17 @@ namespace SmokersWPF_MVVM
         {
             get => agentLog;
             set { agentLog = value; OnPropertyChanged(nameof(AgentLog)); }
+        }
+        public int SmokersCount
+        {
+            get => smokersCount;
+            set { smokersCount = value;}
+        }
+        public int SmokingCount
+        {
+            get => smokingCount;
+            set { smokingCount = value; OnPropertyChanged(nameof(SmokingCount));}
+
         }
     }
 }

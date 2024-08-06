@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SmokersWPF_MVVM.Classes
 {
@@ -29,16 +30,18 @@ namespace SmokersWPF_MVVM.Classes
                     switch (rndm)
                     {
 
-                        case 0: Table_.res1 = 1; Table_.res2 = 1; Table_.res3 = 0; break;
-                        case 1: Table_.res1 = 1; Table_.res2 = 0; Table_.res3 = 1; break;
-                        case 2: Table_.res1 = 0; Table_.res2 = 1; Table_.res3 = 1; break;
+                        case 0: vm.Res1 = 1; vm.Res2 = 1; vm.Res3 = 0; break;
+                        case 1: vm.Res1 = 1; vm.Res2 = 0; vm.Res3 = 1; break;
+                        case 2: vm.Res1 = 0; vm.Res2 = 1; vm.Res3 = 1; break;
 
                     }
+                    Table_.smokingState = true;
                     vm.OnPropertyChanged("Res1");
                     vm.OnPropertyChanged("Res2");
                     vm.OnPropertyChanged("Res3");
                     Logger.Log($"Agent provided resources: {Table_.res1} {Table_.res2} {Table_.res3}");
                     vm.AgentLog = ($"Agent provided resources: {Table_.res1} {Table_.res2} {Table_.res3}");
+                    Table_.smokingState = true;
                 }
             }
         }   

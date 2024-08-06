@@ -9,20 +9,32 @@
     <Grid>
         <StackPanel>
             <WrapPanel>
-                <StackPanel Margin="15 10">
-                    <TextBlock Text="Paper:" HorizontalAlignment="Center"/>
-                    <TextBox Text="{Binding Res1, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
-                </StackPanel>
-                <StackPanel Margin="10">
-                    <TextBlock Text="Tobacco:"/>
-                    <TextBox Text="{Binding Res2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
-                </StackPanel>
-                <StackPanel Margin="10">
-                    <TextBlock Text="Match:" HorizontalAlignment="Center"/>
-                    <TextBox Text="{Binding Res3, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
-                </StackPanel>
+                <TabControl x:Name="tabc">
+                    <TabControl.ContentTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel>
+                                    <WrapPanel>
+                                        <StackPanel Margin="15 10">
+                                            <TextBlock Text="Paper:" HorizontalAlignment="Center"/>
+                                            <TextBox Text="{Binding Path=Res1, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="10">
+                                            <TextBlock Text="Tobacco:"/>
+                                            <TextBox Text="{Binding Path=Res2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="10">
+                                            <TextBlock Text="Match:" HorizontalAlignment="Center"/>
+                                            <TextBox Text="{Binding Path=Res3, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="40" IsReadOnly="True"/>
+                                        </StackPanel>
+                                    </WrapPanel>
+                                    <TextBlock Text="{Binding WhosSmoking, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </TabControl.ContentTemplate>
+                </TabControl>
             </WrapPanel>
-            <TextBlock Text="{Binding WhosSmoking, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Window>
